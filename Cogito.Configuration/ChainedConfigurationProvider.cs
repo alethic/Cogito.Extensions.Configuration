@@ -5,7 +5,7 @@ using System.Linq;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Primitives;
 
-namespace FileAndServe.Configuration
+namespace Cogito.Configuration
 {
 
     /// <summary>
