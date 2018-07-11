@@ -3,12 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27825.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cogito.Configuration", "Cogito.Configuration\Cogito.Configuration.csproj", "{7C9B1672-468F-483B-BDCE-72CEA338446E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2061DAAE-9ACC-4D7E-B3C0-6C162D5EC63A}"
 	ProjectSection(SolutionItems) = preProject
 		appveyor.yml = appveyor.yml
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cogito.Extensions.Configuration", "Cogito.Extensions.Configuration\Cogito.Extensions.Configuration.csproj", "{4C2EF537-8558-459C-8A6B-7EC78FD0E3E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,10 +16,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7C9B1672-468F-483B-BDCE-72CEA338446E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C9B1672-468F-483B-BDCE-72CEA338446E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C9B1672-468F-483B-BDCE-72CEA338446E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C9B1672-468F-483B-BDCE-72CEA338446E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C2EF537-8558-459C-8A6B-7EC78FD0E3E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C2EF537-8558-459C-8A6B-7EC78FD0E3E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C2EF537-8558-459C-8A6B-7EC78FD0E3E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C2EF537-8558-459C-8A6B-7EC78FD0E3E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

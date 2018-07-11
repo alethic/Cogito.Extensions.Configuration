@@ -6,7 +6,7 @@ using System.Configuration;
 
 using Microsoft.Extensions.Configuration;
 
-namespace Cogito.Configuration
+namespace Cogito.Extensions.Configuration
 {
 
     /// <summary>

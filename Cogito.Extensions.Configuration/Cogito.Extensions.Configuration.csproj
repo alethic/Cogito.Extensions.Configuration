@@ -12,6 +12,7 @@
     <PackageIconUrl>https://cloverluxussc.blob.core.windows.net/public/cogito-nuget-icon.png</PackageIconUrl>
     <RepositoryUrl></RepositoryUrl>
     <PackageProjectUrl>https://github.com/wasabii/Cogito.Configuration</PackageProjectUrl>
+    <AssemblyName>Cogito.Extensions.Configuration</AssemblyName>
   </PropertyGroup>
 
     <ItemGroup>
