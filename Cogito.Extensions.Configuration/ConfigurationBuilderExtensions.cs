@@ -34,6 +34,19 @@ namespace Cogito.Extensions.Configuration
         /// <returns></returns>
         public static IConfigurationBuilder AddParentJsonFiles(this IConfigurationBuilder builder, string fileName, string basePath = null)
         {
+            return AddParentJsonFiles(builder, fileName, basePath, default);
+        }
+
+        /// <summary>
+        /// Appends any App.config.local.json files located in the parent paths of the application path.
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="fileName"></param>
+        /// <param name="basePath"></param>
+        /// <param name="reloadOnChange"></param>
+        /// <returns></returns>
+        public static IConfigurationBuilder AddParentJsonFiles(this IConfigurationBuilder builder, string fileName, string basePath = null, bool reloadOnChange = false)
+        {
             if (builder == null)
                 throw new ArgumentNullException(nameof(builder));
             if (fileName == null)
@@ -41,7 +54,7 @@ namespace Cogito.Extensions.Configuration
 
             // append any settings files in the parent paths.
             foreach (var i in GetParentConfigFiles(new DirectoryInfo(basePath ?? GetBaseDirectory()), fileName))
-                builder.AddJsonFile(i.FullName, true);
+                builder.AddJsonFile(i.FullName, true, reloadOnChange);
 
             return builder;
         }
@@ -50,7 +63,7 @@ namespace Cogito.Extensions.Configuration
         /// Gets the base application directory.
         /// </summary>
         /// <returns></returns>
-        static string GetBaseDirectory()
+        private static string GetBaseDirectory()
         {
 #if NET451
             return AppDomain.CurrentDomain.BaseDirectory;
@@ -65,7 +78,7 @@ namespace Cogito.Extensions.Configuration
         /// <param name="directory"></param>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        static IEnumerable<FileInfo> GetParentConfigFiles(DirectoryInfo directory, string fileName)
+        private static IEnumerable<FileInfo> GetParentConfigFiles(DirectoryInfo directory, string fileName)
         {
             if (directory == null)
                 throw new ArgumentNullException(nameof(directory));
@@ -83,7 +96,7 @@ namespace Cogito.Extensions.Configuration
         /// </summary>
         /// <param name="directory"></param>
         /// <returns></returns>
-        static IEnumerable<DirectoryInfo> GetParentDirectories(DirectoryInfo directory)
+        private static IEnumerable<DirectoryInfo> GetParentDirectories(DirectoryInfo directory)
         {
             if (directory == null)
                 throw new ArgumentNullException(nameof(directory));
