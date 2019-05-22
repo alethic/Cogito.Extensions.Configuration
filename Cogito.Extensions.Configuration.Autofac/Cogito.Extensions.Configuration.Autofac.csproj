@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -11,7 +11,7 @@
     <Copyright>Jerome Haltom</Copyright>
     <PackageIconUrl>https://cloverluxussc.blob.core.windows.net/public/cogito-nuget-icon.png</PackageIconUrl>
     <RepositoryUrl></RepositoryUrl>
-    <PackageProjectUrl>https://github.com/wasabii/Cogito.Configuration</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/wasabii/Cogito.Extensions.Configuration</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
