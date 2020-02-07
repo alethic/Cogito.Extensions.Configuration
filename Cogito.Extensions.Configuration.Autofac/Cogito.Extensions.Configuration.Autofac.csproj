@@ -1,25 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Company>Jerome Haltom</Company>
-    <Description>Extensions for Microsoft.Extensions.Configuration.</Description>
-    <PackageTags></PackageTags>
-    <Version>0.0.1</Version>
-    <Authors>Jerome Haltom</Authors>
-    <Copyright>Jerome Haltom</Copyright>
-    <PackageIconUrl>https://cloverluxussc.blob.core.windows.net/public/cogito-nuget-icon.png</PackageIconUrl>
-    <RepositoryUrl></RepositoryUrl>
-    <PackageProjectUrl>https://github.com/wasabii/Cogito.Extensions.Configuration</PackageProjectUrl>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Description>Extensions for Microsoft.Extensions.Configuration.</Description>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Cogito.Autofac" Version="2.0.2" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Cogito.Autofac" Version="2.0.2" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Cogito.Extensions.Configuration\Cogito.Extensions.Configuration.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Cogito.Extensions.Configuration\Cogito.Extensions.Configuration.csproj" />
+    </ItemGroup>
 
 </Project>
