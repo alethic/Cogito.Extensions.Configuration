@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 using Autofac;
 
@@ -16,14 +15,14 @@ namespace Cogito.Extensions.Configuration.Autofac
         RegisterTypeHandler
     {
 
-        protected override void Register(
+        protected override void RegisterCore(
             ContainerBuilder builder,
             Type type,
-            IEnumerable<IRegistrationRootAttribute> attributes,
+            IRegistrationRootAttribute attribute,
             IEnumerable<IRegistrationBuilderAttribute> builders)
         {
-            foreach (var attribute in attributes.OfType<RegisterConfigurationAttribute>())
-                ApplyBuilders(type, builder.RegisterConfigurationBinding(type, attribute.Path), attribute, builders);
+            if (attribute is RegisterConfigurationAttribute a)
+                ApplyBuilders(type, builder.RegisterConfigurationBinding(type, a.Path), attribute, builders);
         }
 
     }
