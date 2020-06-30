@@ -18,14 +18,17 @@ namespace Cogito.Extensions.Configuration.Autofac
     {
 
         readonly IEnumerable<IConfigurationBuilderConfigurationProvider> providers;
+        readonly IConfiguration existing;
 
         /// <summary>
         /// Initializes a new instance.
         /// </summary>
         /// <param name="providers"></param>
-        public DefaultConfigurationRootBuilder(IOrderedEnumerable<IConfigurationBuilderConfigurationProvider> providers)
+        /// <param name="existing"></param>
+        public DefaultConfigurationRootBuilder(IOrderedEnumerable<IConfigurationBuilderConfigurationProvider> providers, IConfiguration existing = null)
         {
             this.providers = providers ?? throw new ArgumentNullException(nameof(providers));
+            this.existing = existing;
         }
 
         /// <summary>
@@ -44,10 +47,12 @@ namespace Cogito.Extensions.Configuration.Autofac
         /// Builds the default <see cref="ConfigurationBuilder"/> instance.
         /// </summary>
         /// <returns></returns>
-        IConfigurationBuilder BuildDefaultConfigurationBuilder()
+        public IConfigurationBuilder BuildDefaultConfigurationBuilder()
         {
-            return new ConfigurationBuilder()
-                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory);
+            if (existing == null)
+                return new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory);
+            else
+                return new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory).AddConfiguration(existing);
         }
 
         /// <summary>
@@ -55,7 +60,7 @@ namespace Cogito.Extensions.Configuration.Autofac
         /// </summary>
         /// <param name="args"></param>
         /// <returns></returns>
-        protected IConfigurationBuilder ApplyDefaults(IConfigurationBuilder builder, string[] args)
+        public IConfigurationBuilder ApplyDefaults(IConfigurationBuilder builder, string[] args)
         {
             if (builder == null)
                 throw new ArgumentNullException(nameof(builder));
@@ -68,7 +73,7 @@ namespace Cogito.Extensions.Configuration.Autofac
         /// </summary>
         /// <param name="builder"></param>
         /// <returns></returns>
-        IConfigurationBuilder ApplyConfigurations(IConfigurationBuilder builder)
+        public IConfigurationBuilder ApplyConfigurations(IConfigurationBuilder builder)
         {
             if (builder == null)
                 throw new ArgumentNullException(nameof(builder));
