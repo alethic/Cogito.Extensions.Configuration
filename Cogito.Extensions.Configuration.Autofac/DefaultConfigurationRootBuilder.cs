@@ -53,7 +53,7 @@ namespace Cogito.Extensions.Configuration.Autofac
 
             if (existing != null)
                 foreach (var i in existing)
-                    return builder = builder.AddConfiguration(i);
+                    builder = builder.AddConfiguration(i);
 
             return builder;
         }

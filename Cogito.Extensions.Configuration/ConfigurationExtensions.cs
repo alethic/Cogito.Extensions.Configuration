@@ -25,7 +25,7 @@ namespace Cogito.Extensions.Configuration
                 throw new ArgumentNullException(nameof(config));
             if (path == null)
                 throw new ArgumentNullException(nameof(path));
-
+            
             var c = new T();
             config.GetSection(path)?.Bind(c);
             return c;
