@@ -18,14 +18,14 @@ namespace Cogito.Extensions.Configuration.Autofac
     {
 
         readonly IEnumerable<IConfigurationBuilderConfigurationProvider> providers;
-        readonly IConfiguration existing;
+        readonly IEnumerable<IConfiguration> existing;
 
         /// <summary>
         /// Initializes a new instance.
         /// </summary>
         /// <param name="providers"></param>
         /// <param name="existing"></param>
-        public DefaultConfigurationRootBuilder(IOrderedEnumerable<IConfigurationBuilderConfigurationProvider> providers, IConfiguration existing = null)
+        public DefaultConfigurationRootBuilder(IOrderedEnumerable<IConfigurationBuilderConfigurationProvider> providers, IEnumerable<IConfiguration> existing = null)
         {
             this.providers = providers ?? throw new ArgumentNullException(nameof(providers));
             this.existing = existing;
@@ -49,10 +49,13 @@ namespace Cogito.Extensions.Configuration.Autofac
         /// <returns></returns>
         public IConfigurationBuilder BuildDefaultConfigurationBuilder()
         {
-            if (existing == null)
-                return new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory);
-            else
-                return new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory).AddConfiguration(existing);
+            var builder = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory);
+
+            if (existing != null)
+                foreach (var i in existing)
+                    return builder = builder.AddConfiguration(i);
+
+            return builder;
         }
 
         /// <summary>
