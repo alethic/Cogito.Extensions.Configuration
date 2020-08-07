@@ -4,7 +4,6 @@
         <Company>Alethic Solutions</Company>
         <RepositoryUrl>https://github.com/alethic/Cogito.Extensions.Configuration</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageLicenseUrl></PackageLicenseUrl>
         <PackageProjectUrl>https://github.com/alethic/Cogito.Extensions.Configuration</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageIcon>icon.png</PackageIcon>
