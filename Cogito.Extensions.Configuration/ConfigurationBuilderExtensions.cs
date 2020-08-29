@@ -54,7 +54,7 @@ namespace Cogito.Extensions.Configuration
 
             // append any settings files in the parent paths.
             foreach (var i in GetParentConfigFiles(new DirectoryInfo(basePath ?? GetBaseDirectory()), fileName))
-                builder.AddJsonFile(i.FullName, true, reloadOnChange);
+                builder = builder.AddJsonFile(i.FullName, true, reloadOnChange);
 
             return builder;
         }
