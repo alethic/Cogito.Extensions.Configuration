@@ -5,12 +5,11 @@ using System.Linq;
 using Autofac;
 using Autofac.Core;
 using Autofac.Core.Activators.Delegate;
-using Autofac.Core.Activators.ProvidedInstance;
 using Autofac.Core.Lifetime;
 using Autofac.Core.Registration;
-using Autofac.Core.Resolving.Pipeline;
 
 using Cogito.Autofac;
+using Cogito.Linq;
 
 using Microsoft.Extensions.Configuration;
 
@@ -37,7 +36,7 @@ namespace Cogito.Extensions.Configuration.Autofac
                 new RootScopeLifetime(),
                 InstanceSharing.Shared,
                 InstanceOwnership.ExternallyOwned,
-                new[] { new TypedService(typeof(IConfiguration)) },
+                new TypedService(typeof(IConfiguration)).Yield(),
                 new Dictionary<string, object>()));
         }
 
@@ -58,7 +57,7 @@ namespace Cogito.Extensions.Configuration.Autofac
                         new RootScopeLifetime(),
                         InstanceSharing.Shared,
                         InstanceOwnership.OwnedByLifetimeScope,
-                        new[] { service },
+                        service.Yield(),
                         new Dictionary<string, object>());
             }
 
