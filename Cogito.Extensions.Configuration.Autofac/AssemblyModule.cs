@@ -26,10 +26,10 @@ namespace Cogito.Extensions.Configuration.Autofac
         {
             builder.RegisterFromAttributes(typeof(AssemblyModule).Assembly);
 
-            // use a source to provide a root that varies depending on registration of existing configuration
-            // reexpose Configuration based on that root
-            // avoids circular dependency
+            // this source provides the new IConfigurationRoot service by chaining to any existing IConfiguration instances registered within the container.
             builder.RegisterSource(new ConfigurationRegistrationSource());
+
+            // this provides a new IConfiguration service that uses the new IConfigurationRoot service
             builder.RegisterComponent(new ComponentRegistration(
                 CONF_ID,
                 new DelegateActivator(typeof(IConfiguration), (c, p) => c.Resolve<IConfigurationRoot>()),
