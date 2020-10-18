@@ -5,8 +5,10 @@ using System.Linq;
 using Autofac;
 using Autofac.Core;
 using Autofac.Core.Activators.Delegate;
+using Autofac.Core.Activators.ProvidedInstance;
 using Autofac.Core.Lifetime;
 using Autofac.Core.Registration;
+using Autofac.Core.Resolving.Pipeline;
 
 using Cogito.Autofac;
 
@@ -47,12 +49,12 @@ namespace Cogito.Extensions.Configuration.Autofac
 
             public bool IsAdapterForIndividualComponents => false;
 
-            public IEnumerable<IComponentRegistration> RegistrationsFor(Service service, Func<Service, IEnumerable<IComponentRegistration>> registrationAccessor)
+            public IEnumerable<IComponentRegistration> RegistrationsFor(Service service, Func<Service, IEnumerable<ServiceRegistration>> registrationAccessor)
             {
                 if (service is IServiceWithType svc && svc.ServiceType == typeof(IConfigurationRoot))
                     yield return new ComponentRegistration(
                         ROOT_ID,
-                        GetActivator(registrationAccessor(new TypedService(typeof(IConfiguration))).Where(i => i.Id != CONF_ID)),
+                        GetActivator(registrationAccessor(new TypedService(typeof(IConfiguration))).Where(i => i.Registration.Id != CONF_ID)),
                         new RootScopeLifetime(),
                         InstanceSharing.Shared,
                         InstanceOwnership.OwnedByLifetimeScope,
@@ -65,10 +67,10 @@ namespace Cogito.Extensions.Configuration.Autofac
             /// </summary>
             /// <param name="existing"></param>
             /// <returns></returns>
-            DelegateActivator GetActivator(IEnumerable<IComponentRegistration> existing)
+            DelegateActivator GetActivator(IEnumerable<ServiceRegistration> existing)
             {
                 if (existing.Any())
-                    return new DelegateActivator(typeof(IConfigurationRoot), (c, p) => c.Resolve<IConfigurationRootBuilder>(TypedParameter.From(existing.Select(i => i.Activator.ActivateInstance(c, Enumerable.Empty<Parameter>())).OfType<IConfiguration>())).BuildConfiguration());
+                    return new DelegateActivator(typeof(IConfigurationRoot), (c, p) => c.Resolve<IConfigurationRootBuilder>(TypedParameter.From(existing.Select(i => c.ResolveComponent(new ResolveRequest(new TypedService(typeof(IConfiguration)), i, Enumerable.Empty<Parameter>()))).OfType<IConfiguration>())).BuildConfiguration());
                 else
                     return new DelegateActivator(typeof(IConfigurationRoot), (c, p) => c.Resolve<IConfigurationRootBuilder>().BuildConfiguration());
             }
