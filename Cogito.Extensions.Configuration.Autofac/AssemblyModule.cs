@@ -68,10 +68,7 @@ namespace Cogito.Extensions.Configuration.Autofac
             /// <returns></returns>
             DelegateActivator GetActivator(IEnumerable<ServiceRegistration> existing)
             {
-                if (existing.Any())
-                    return new DelegateActivator(typeof(IConfigurationRoot), (c, p) => c.Resolve<IConfigurationRootBuilder>(TypedParameter.From(existing.Select(i => c.ResolveComponent(new ResolveRequest(new TypedService(typeof(IConfiguration)), i, Enumerable.Empty<Parameter>()))).OfType<IConfiguration>())).BuildConfiguration());
-                else
-                    return new DelegateActivator(typeof(IConfigurationRoot), (c, p) => c.Resolve<IConfigurationRootBuilder>().BuildConfiguration());
+                return new DelegateActivator(typeof(IConfigurationRoot), (c, p) => c.Resolve<IConfigurationRootBuilder>(TypedParameter.From(existing.Select(i => c.ResolveComponent(new ResolveRequest(new TypedService(typeof(IConfiguration)), i, Enumerable.Empty<Parameter>()))).OfType<IConfiguration>())).BuildConfiguration());
             }
 
         }

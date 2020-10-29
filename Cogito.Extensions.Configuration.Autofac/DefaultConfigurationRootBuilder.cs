@@ -13,8 +13,7 @@ namespace Cogito.Extensions.Configuration.Autofac
     /// Builds the default configuration.
     /// </summary>
     [RegisterAs(typeof(IConfigurationRootBuilder))]
-    public class DefaultConfigurationRootBuilder :
-        IConfigurationRootBuilder
+    public class DefaultConfigurationRootBuilder : IConfigurationRootBuilder
     {
 
         readonly IEnumerable<IConfigurationBuilderConfigurationProvider> providers;
