@@ -24,6 +24,8 @@ namespace Cogito.Extensions.Configuration.Autofac
 
         protected override void Register(ContainerBuilder builder)
         {
+            builder.RegisterModule<Cogito.Autofac.AssemblyModule>();
+
             builder.RegisterFromAttributes(typeof(AssemblyModule).Assembly);
 
             // this source provides the new IConfigurationRoot service by chaining to any existing IConfiguration instances registered within the container.

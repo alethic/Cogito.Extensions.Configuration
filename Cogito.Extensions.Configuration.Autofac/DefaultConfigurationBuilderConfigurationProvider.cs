@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using Cogito.Autofac;
 
@@ -21,7 +22,7 @@ namespace Cogito.Extensions.Configuration.Autofac
         /// Initializes a new instance.
         /// </summary>
         /// <param name="configurations"></param>
-        public DefaultConfigurationBuilderConfigurationProvider(IEnumerable<IConfigurationBuilderConfiguration> configurations)
+        public DefaultConfigurationBuilderConfigurationProvider(IOrderedEnumerable<IConfigurationBuilderConfiguration> configurations)
         {
             this.configurations = configurations ?? throw new ArgumentNullException(nameof(configurations));
         }

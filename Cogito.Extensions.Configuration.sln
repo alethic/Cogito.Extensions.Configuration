@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cogito.Extensions.Configura
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cogito.Extensions.Configuration.Autofac", "Cogito.Extensions.Configuration.Autofac\Cogito.Extensions.Configuration.Autofac.csproj", "{14FDE748-2B72-4B94-BCA1-FC62A2AAAE88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cogito.Extensions.Configuration.Autofac.Sample1", "Cogito.Extensions.Configuration.Autofac.Sample1\Cogito.Extensions.Configuration.Autofac.Sample1.csproj", "{B0E1AA79-82A1-4951-A540-9CD4D8E3CD49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cogito.Extensions.Configuration.Autofac.Sample1", "Cogito.Extensions.Configuration.Autofac.Sample1\Cogito.Extensions.Configuration.Autofac.Sample1.csproj", "{B0E1AA79-82A1-4951-A540-9CD4D8E3CD49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cogito.Extensions.Configuration.Tests", "Cogito.Extensions.Configuration.Tests\Cogito.Extensions.Configuration.Tests.csproj", "{17ADBA15-727F-44D8-934D-ECAF68260A18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B0E1AA79-82A1-4951-A540-9CD4D8E3CD49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0E1AA79-82A1-4951-A540-9CD4D8E3CD49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0E1AA79-82A1-4951-A540-9CD4D8E3CD49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17ADBA15-727F-44D8-934D-ECAF68260A18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17ADBA15-727F-44D8-934D-ECAF68260A18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17ADBA15-727F-44D8-934D-ECAF68260A18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17ADBA15-727F-44D8-934D-ECAF68260A18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
