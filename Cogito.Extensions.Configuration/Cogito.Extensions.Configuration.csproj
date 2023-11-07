@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.0;netcoreapp3.0;net47;net462</TargetFrameworks>
+        <TargetFrameworks>netstandard2.0;net6.0;net472</TargetFrameworks>
         <Description>Extensions for Microsoft.Extensions.Configuration.</Description>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     </PropertyGroup>
@@ -14,10 +14,10 @@
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' != 'netcoreapp3.0'">
-        <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
-        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.2.0" />
-        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.2.0" />
-        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.4" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' == 'net462'">
