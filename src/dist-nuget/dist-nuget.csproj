@@ -6,16 +6,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageProjectReference Include="..\Cogito.Extensions.Options\Cogito.Extensions.Options.csproj">
+        <PackageProjectReference Include="..\Cogito.Extensions.Configuration\Cogito.Extensions.Configuration.csproj">
             <PackageTargetPath>.</PackageTargetPath>
         </PackageProjectReference>
-        <PackageProjectReference Include="..\Cogito.Extensions.Options.Autofac\Cogito.Extensions.Options.Autofac.csproj">
-            <PackageTargetPath>.</PackageTargetPath>
-        </PackageProjectReference>
-        <PackageProjectReference Include="..\Cogito.Extensions.Options.Configuration\Cogito.Extensions.Options.Configuration.csproj">
-            <PackageTargetPath>.</PackageTargetPath>
-        </PackageProjectReference>
-        <PackageProjectReference Include="..\Cogito.Extensions.Options.Configuration.Autofac\Cogito.Extensions.Options.Configuration.Autofac.csproj">
+        <PackageProjectReference Include="..\Cogito.Extensions.Configuration.Autofac\Cogito.Extensions.Configuration.Autofac.csproj">
             <PackageTargetPath>.</PackageTargetPath>
         </PackageProjectReference>
     </ItemGroup>
