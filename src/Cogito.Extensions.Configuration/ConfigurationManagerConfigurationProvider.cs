@@ -1,10 +1,13 @@
-﻿#if NET451 || NET462 || NET47
+﻿#if NETFRAMEWORK
 
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 
 using Microsoft.Extensions.Configuration;
+
+// Microsoft.Extensions.Configuration defines its own ConfigurationManager as of 6.0; alias
+// the System.Configuration one this provider actually bridges from.
+using ConfigurationManager = System.Configuration.ConfigurationManager;
 
 namespace Cogito.Extensions.Configuration
 {

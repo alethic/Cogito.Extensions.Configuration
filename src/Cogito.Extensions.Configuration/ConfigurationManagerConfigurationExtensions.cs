@@ -1,4 +1,4 @@
-﻿#if NET451 || NET462 || NET47
+﻿#if NETFRAMEWORK
 
 using System;
 using System.Linq;
