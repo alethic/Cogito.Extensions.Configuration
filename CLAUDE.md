@@ -9,7 +9,7 @@ Publishes 2 packages: `Cogito.Extensions.Configuration`, `Cogito.Extensions.Conf
 ## Build and test
 
 ```shell
-dotnet restore Cogito.Extensions.Configuration.sln
+dotnet restore Cogito.Extensions.Configuration.slnx
 dotnet msbuild -p:Configuration=Release Cogito.Extensions.Configuration.dist.msbuildproj
 ```
 
